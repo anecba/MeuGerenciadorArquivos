@@ -46,13 +46,11 @@ class _CadastroPageState extends State<CadastroPage> {
             Container(
               //colocar cor temporária
               color: Colors.amber,
-
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               //padding: EdgeInsets.only(top: 50),
               child: Column(
                 children: <Widget>[
-
                   Align(
                     child: Padding(
                       padding: const EdgeInsets.only(
