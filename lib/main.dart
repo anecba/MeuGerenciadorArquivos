@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'cadastro.dart';
-import 'login.dart';
-import 'home.dart';
+import 'package:tccgerenciadorapp/Cadastro/cadastro.dart';
+import 'package:tccgerenciadorapp/Login/login.dart';
+import 'package:tccgerenciadorapp/Home/home.dart';
 import 'package:tccgerenciadorapp/constantes';
 
 void main() => runApp(Profile());

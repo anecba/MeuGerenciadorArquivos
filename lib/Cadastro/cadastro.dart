@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'main.dart';
-import 'login.dart';
+import '../main.dart';
+import 'package:tccgerenciadorapp/Login/login.dart';
 
 class CadastroApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //retira a bandeira de debug
       debugShowCheckedModeBanner: false,
       title: 'Tela de Cadastro',
       theme: ThemeData(

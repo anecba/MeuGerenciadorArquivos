@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'cadastro.dart';
-import 'main.dart';
+import 'package:tccgerenciadorapp/Cadastro/cadastro.dart';
+import '../main.dart';
 
 
 class LoginApp extends StatelessWidget {
