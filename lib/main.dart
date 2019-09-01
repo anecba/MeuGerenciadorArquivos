@@ -4,6 +4,7 @@ import 'package:tccgerenciadorapp/Cadastro/cadastro.dart';
 import 'package:tccgerenciadorapp/Login/login.dart';
 import 'package:tccgerenciadorapp/Home/home.dart';
 import 'package:tccgerenciadorapp/constantes';
+import 'package:tccgerenciadorapp/Quiz/TelaQuiz.dart';
 
 void main() => runApp(Profile());
 
@@ -106,7 +107,24 @@ class _MainPageState extends State<MainPage> {
                       'HOME',
                       style: TextStyle(color: Colors.white, fontSize: 24),
                     ),
-                  ))
+                  )),
+              Container(
+                height: 100,
+                width: 160,
+                alignment: Alignment.center,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => (AnimalQuiz())));
+                  },
+                  child: Text(
+                    'QUIZ',
+                    style: TextStyle(color: Colors.white, fontSize: 24),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
