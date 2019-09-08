@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../main.dart';
+import 'package:tccgerenciadorapp/Home/home.dart';
 import 'package:tccgerenciadorapp/Login/login.dart';
 
 class CadastroApp extends StatelessWidget {
@@ -35,19 +35,13 @@ class _CadastroPageState extends State<CadastroPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
-        title: Text('Tela de Cadastro'),
-        backgroundColor: ,
-      ),*/
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             Container(
-              //colocar cor temporária
               color: Colors.amber,
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
-              //padding: EdgeInsets.only(top: 50),
               child: Column(
                 children: <Widget>[
                   Align(
@@ -154,7 +148,7 @@ class _CadastroPageState extends State<CadastroPage> {
                   Container(height: 60),
                   //CRIAR UMA CONTA!
                   GestureDetector(
-                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => (Profile())));},
+                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => (HomeApp())));},
                     child: Container(
                       height: MediaQuery.of(context).size.width/6,
                       width: MediaQuery.of(context).size.width/1.2,
@@ -219,5 +213,3 @@ class _CadastroPageState extends State<CadastroPage> {
     );
   }
 }
-
-//Agora tem q colocar o BD!

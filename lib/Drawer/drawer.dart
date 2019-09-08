@@ -1,44 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:tccgerenciadorapp/GerenciadorArquivos/telaGerenciarArquivos.dart';
+import 'package:tccgerenciadorapp/Home/home.dart';
 import 'package:tccgerenciadorapp/Quiz/TelaQuiz.dart';
-import 'package:tccgerenciadorapp/AnotacaoTxt/ListaAnotacoes.dart';
 
-class HomeApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Tela de Login',
-      theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
-      ),
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return _HomePageState();
-  }
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
-    SystemChrome.setEnabledSystemUIOverlays([]);
-    super.initState();
-  }
-
+// TODO NO MOMENTO ESTA CLASSE NÃO ESTÁ SENDO UTILIZADA. TEM QUE FAZER ELA FUNCIONAR PRIMEIRO. O CÓDIGO FOI SÓ COPIADO E COLADO.
+class DrawerCustomizado extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Tutorial'),
-        backgroundColor: Colors.deepOrange,
-      ),
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
@@ -97,11 +67,10 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: NoteList()
     );
   }
 }
-//TODO Não esquecer de arrumar a tela home.
+
 class CustomizeListTile extends StatelessWidget{
   IconData icon;
   String text;
@@ -113,7 +82,7 @@ class CustomizeListTile extends StatelessWidget{
       padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
       child: Container(
         decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(color: Colors.grey.shade400))
+            border: Border(bottom: BorderSide(color: Colors.grey.shade400))
         ),
         child: InkWell(
           splashColor: Colors.orangeAccent,
@@ -129,7 +98,7 @@ class CustomizeListTile extends StatelessWidget{
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(text, style: TextStyle(
-                        fontSize: 16.0
+                          fontSize: 16.0
                       ),),
                     ),
                   ],

@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tccgerenciadorapp/Cadastro/cadastro.dart';
-import '../main.dart';
-
+import 'package:tccgerenciadorapp/Home/home.dart';
 
 class LoginApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //retira a bandeira de debug
       debugShowCheckedModeBanner: false,
       title: 'Tela de Login',
       theme: ThemeData(
@@ -54,9 +52,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             child: Column(
               children: <Widget>[
-
-                //Primeira repartição da tela conde ta o logO
-
+                //Primeira repartição da tela conde ta o logo
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height/2.5,
@@ -66,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       GestureDetector(
-                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => (Profile())));},
+                        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => (HomeApp())));},
                         child: Container(
                           height: 60,
                           child: Padding(
@@ -205,7 +201,7 @@ class _LoginPageState extends State<LoginPage> {
                 //meu botão pra logar
                 //AQUI FICA MEU BOTAO
                 GestureDetector(
-                  onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => (Profile())));},
+                  onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => (HomeApp())));},
                   child: Container(
                     height: MediaQuery.of(context).size.width/6,
                     width: MediaQuery.of(context).size.width/1.2,
@@ -271,10 +267,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
-//Nota dia 13-05-19 - Parei na parte de criar uma opção para o usuario acessar a
-//tela principal sem realizar o login. RETORMAR DAQUI!
-
-//Nota dia 14-05-19 - Eu terminei o acesso. Agora criar o design para a página principal! Incrementar o menu agora.
-
-//Nota dia 15-05-19 - Criando menu na tela principal. Na próxima tem q utilizar das dicas recebidas para alterar o menu.

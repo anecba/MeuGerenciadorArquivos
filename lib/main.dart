@@ -6,8 +6,9 @@ import 'package:tccgerenciadorapp/Home/home.dart';
 import 'package:tccgerenciadorapp/constantes';
 import 'package:tccgerenciadorapp/Quiz/TelaQuiz.dart';
 
-void main() => runApp(Profile());
+void main() => runApp(HomeApp());
 
+/*
 class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -136,3 +137,4 @@ class _MainPageState extends State<MainPage> {
     print("WORKING");
   }
 }
+*/
