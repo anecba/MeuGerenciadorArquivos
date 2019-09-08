@@ -5,11 +5,10 @@ import 'package:tccgerenciadorapp/Login/login.dart';
 import 'package:tccgerenciadorapp/Home/home.dart';
 import 'package:tccgerenciadorapp/constantes';
 import 'package:tccgerenciadorapp/Quiz/TelaQuiz.dart';
-import 'package:tccgerenciadorapp/GerenciadorArquivos/telaGerenciarArquivos.dart';
 
+void main() => runApp(HomeApp());
 
-void main() => runApp(Profile());
-
+/*
 class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -100,8 +99,10 @@ class _MainPageState extends State<MainPage> {
                   alignment: Alignment.center,
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => (HomeApp())));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => (HomeApp())));
                     },
                     child: Text(
                       'HOME',
@@ -125,23 +126,6 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ),
               ),
-              Container(
-                height: 100,
-                width: 160,
-                alignment: Alignment.center,
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => (OrganizadorApp())));
-                  },
-                  child: Text(
-                    'ORGANIZADOR',
-                    style: TextStyle(color: Colors.white, fontSize: 24),
-                  ),
-                ),
-              )
             ],
           ),
         ),
@@ -153,3 +137,4 @@ class _MainPageState extends State<MainPage> {
     print("WORKING");
   }
 }
+*/
