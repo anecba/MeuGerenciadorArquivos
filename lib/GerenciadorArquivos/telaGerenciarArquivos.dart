@@ -11,13 +11,45 @@ class OrganizadorApp extends StatefulWidget {
 }
 
 class _OrganizadorState extends State<OrganizadorApp> {
+  Icon cusIcon = Icon(Icons.search);
+  Widget cusSearchBar = Text("Gerenciador de arquivos");
+
   @override
   Widget build(BuildContext context) {
     SimplePermissions.requestPermission(Permission.ReadExternalStorage);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Flutter File Manager Example"),
+          title: cusSearchBar,
+          actions: <Widget>[
+            IconButton(
+              icon: cusIcon,
+              onPressed: () {
+                setState(() {
+                  if(this.cusIcon.icon == Icons.search){
+                    this.cusIcon = Icon(Icons.cancel);
+                    this.cusSearchBar = TextField(
+                      textInputAction: TextInputAction.go,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: "Pesquisa"
+                      ),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.0
+                      )
+                    );
+                  }
+                  else {
+                    this.cusIcon = Icon(Icons.search);
+                    this.cusSearchBar = Text("Gerenciador de arquivos");
+                  }
+                });
+              },
+            ),
+
+          ],
         ),
         drawer: Drawer(
           child: ListView(
