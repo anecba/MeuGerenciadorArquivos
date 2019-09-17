@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_file_manager/flutter_file_manager.dart';
@@ -13,6 +12,9 @@ class OrganizadorApp extends StatefulWidget {
 class _OrganizadorState extends State<OrganizadorApp> {
   Icon cusIcon = Icon(Icons.search);
   Widget cusSearchBar = Text("Gerenciador de arquivos");
+  String dropdownValue = 'One';
+
+  var listaDropdown = ["Inglês", "Estudo", "Material"];
 
   @override
   Widget build(BuildContext context) {
@@ -27,28 +29,21 @@ class _OrganizadorState extends State<OrganizadorApp> {
               icon: cusIcon,
               onPressed: () {
                 setState(() {
-                  if(this.cusIcon.icon == Icons.search){
+                  if (this.cusIcon.icon == Icons.search) {
+                    /*showSearch( context: context, delegate: Search(Path: ));*/
                     this.cusIcon = Icon(Icons.cancel);
                     this.cusSearchBar = TextField(
-                      textInputAction: TextInputAction.go,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Pesquisa"
-                      ),
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.0
-                      )
-                    );
-                  }
-                  else {
+                        textInputAction: TextInputAction.go,
+                        decoration: InputDecoration(
+                            border: InputBorder.none, hintText: "Pesquisa"),
+                        style: TextStyle(color: Colors.white, fontSize: 16.0));
+                  } else {
                     this.cusIcon = Icon(Icons.search);
                     this.cusSearchBar = Text("Gerenciador de arquivos");
                   }
                 });
               },
             ),
-
           ],
         ),
         drawer: Drawer(
@@ -57,14 +52,15 @@ class _OrganizadorState extends State<OrganizadorApp> {
               DrawerHeader(
                   decoration: BoxDecoration(
                       gradient: LinearGradient(colors: <Color>[
-                        Colors.deepOrange,
-                        Colors.orangeAccent
-                      ])),
+                    Colors.deepOrange,
+                    Colors.orangeAccent
+                  ])),
                   child: Container(
                     child: Column(
                       children: <Widget>[
                         Material(
-                            borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(50.0)),
                             elevation: 10,
                             child: Padding(
                                 padding: EdgeInsets.all(0.0),
@@ -74,8 +70,8 @@ class _OrganizadorState extends State<OrganizadorApp> {
                             padding: EdgeInsets.all(6.0),
                             child: Text(
                               'Flutter',
-                              style:
-                              TextStyle(color: Colors.white, fontSize: 20.0),
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 20.0),
                             ))
                       ],
                     ),
@@ -83,29 +79,31 @@ class _OrganizadorState extends State<OrganizadorApp> {
               CustomizeListTile(
                   Icons.person,
                   'Página inicial',
-                      () => {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => (HomeApp())))
-                  }),
+                  () => {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => (HomeApp())))
+                      }),
               CustomizeListTile(
                   Icons.person,
                   'Arquivos',
-                      () => {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => (OrganizadorApp())))
-                  }),
-              CustomizeListTile(
-                  Icons.person,
-                  'Categorias',
-                      () => {
-                  }),
+                  () => {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => (OrganizadorApp())))
+                      }),
+              CustomizeListTile(Icons.person, 'Categorias', () => {}),
               CustomizeListTile(
                   Icons.person,
                   'Quiz',
-                      () => {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => (QuizApp())))
-                  }),
+                  () => {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => (QuizApp())))
+                      }),
             ],
           ),
         ),
@@ -118,11 +116,49 @@ class _OrganizadorState extends State<OrganizadorApp> {
                   itemBuilder: (context, index) {
                     return ListTile(
                       title: Text(snapshot.data[index].path.split('/').last),
+                      onTap: () => {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text("OPA!"),
+                                    content: Text("Uia não é que funciona?"),
+                                    actions: <Widget>[
+                                      // usually buttons at the bottom of the dialog
+                                      /*FlatButton(
+                                        child: Text("MAS já pode fechar..."),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),*/
+                                      DropdownButton<String>(
+                                          value: dropdownValue,
+                                          iconSize: 24,
+                                          elevation: 16,
+                                          onChanged: (String newValue) {
+                                            setState(() {
+                                              dropdownValue = newValue;
+                                            });
+                                          },
+                                          items: <String>['One', 'Two', 'Free', 'Four']
+                                              .map<DropdownMenuItem<String>>((String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          })
+                                              .toList(),
+                                          style: TextStyle(
+                                              color: Colors.deepPurple)),
+                                    ],
+                                  );
+                                })
+                          },
                     );
                   },
                 );
               } else if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: Text("Loading"));
+                return Center(child: Text("Carregando"));
               }
             }),
       ),
@@ -136,19 +172,18 @@ class _OrganizadorState extends State<OrganizadorApp> {
   }
 }
 
-class CustomizeListTile extends StatelessWidget{
+class CustomizeListTile extends StatelessWidget {
   IconData icon;
   String text;
   Function onTap;
   CustomizeListTile(this.icon, this.text, this.onTap);
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
       child: Container(
         decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(color: Colors.grey.shade400))
-        ),
+            border: Border(bottom: BorderSide(color: Colors.grey.shade400))),
         child: InkWell(
           splashColor: Colors.orangeAccent,
           onTap: onTap,
@@ -162,9 +197,10 @@ class CustomizeListTile extends StatelessWidget{
                     Icon(icon),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(text, style: TextStyle(
-                          fontSize: 16.0
-                      ),),
+                      child: Text(
+                        text,
+                        style: TextStyle(fontSize: 16.0),
+                      ),
                     ),
                   ],
                 ),
