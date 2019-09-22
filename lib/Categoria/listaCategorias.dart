@@ -4,29 +4,30 @@ import 'package:tccgerenciadorapp/Drawer/drawer.dart';
 import 'package:tccgerenciadorapp/GerenciadorArquivos/telaGerenciarArquivos.dart';
 import 'package:tccgerenciadorapp/Quiz/TelaQuiz.dart';
 import 'package:tccgerenciadorapp/AnotacaoTxt/ListaAnotacoes.dart';
+import 'package:tccgerenciadorapp/Home/home.dart';
 
-class HomeApp extends StatelessWidget {
+class TelaCategorias extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Tela de Login',
+      title: 'Tela de categorias',
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
-      home: HomePage(),
+      home: ListaCategorias(),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
+class ListaCategorias extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _HomePageState();
+    return _ListaCategoriasState();
   }
 }
 
-class _HomePageState extends State<HomePage> {
+class _ListaCategoriasState extends State<ListaCategorias> {
   @override
   void initState() {
     SystemChrome.setEnabledSystemUIOverlays([]);
@@ -36,12 +37,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Tutorial'),
-        backgroundColor: Colors.deepOrange,
-      ),
-      drawer: Drawer(child: DrawerCustomizado()),
-      body: NoteList()
+        appBar: AppBar(
+          title: Text('Página inicial'),
+          backgroundColor: Colors.deepOrange,
+        ),
+        drawer: Drawer(child: DrawerCustomizado()),
+        body: NoteList()
     );
   }
 }

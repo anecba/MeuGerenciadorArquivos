@@ -41,7 +41,7 @@ class NoteState extends State<Note> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            widget.noteMode == NoteMode.Adding ? 'Add note' : 'Edit note'
+            widget.noteMode == NoteMode.Adding ? 'Adicionar anotações' : 'Editar anotações'
         ),
       ),
       body: Padding(
@@ -52,21 +52,21 @@ class NoteState extends State<Note> {
             TextField(
               controller: _titleController,
               decoration: InputDecoration(
-                  hintText: 'Note title'
+                  hintText: 'Título'
               ),
             ),
             Container(height: 8,),
             TextField(
               controller: _textController,
               decoration: InputDecoration(
-                  hintText: 'Note text'
+                  hintText: 'Anotação'
               ),
             ),
             Container(height: 16.0,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                _NoteButton('Save', Colors.blue, () {
+                _NoteButton('Salvar', Colors.blue, () {
                   final title = _titleController.text;
                   final text = _textController.text;
 
@@ -85,13 +85,13 @@ class NoteState extends State<Note> {
                   Navigator.pop(context);
                 }),
                 Container(height: 16.0,),
-                _NoteButton('Discard', Colors.grey, () {
+                _NoteButton('Descartar', Colors.grey, () {
                   Navigator.pop(context);
                 }),
                 widget.noteMode == NoteMode.Editing ?
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0),
-                  child: _NoteButton('Delete', Colors.red, () async {
+                  child: _NoteButton('Apagar', Colors.red, () async {
                     await NoteProvider.deleteNote(widget.note['id']);
                     Navigator.pop(context);
                   }),
