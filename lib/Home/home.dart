@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tccgerenciadorapp/Drawer/drawer.dart';
-import 'package:tccgerenciadorapp/GerenciadorArquivos/telaGerenciarArquivos.dart';
-import 'package:tccgerenciadorapp/Quiz/TelaQuiz.dart';
 import 'package:tccgerenciadorapp/AnotacaoTxt/ListaAnotacoes.dart';
 
 class HomeApp extends StatelessWidget {
@@ -37,7 +35,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tutorial'),
+        title: Text('Página inicial'),
         backgroundColor: Colors.deepOrange,
       ),
       drawer: Drawer(child: DrawerCustomizado()),

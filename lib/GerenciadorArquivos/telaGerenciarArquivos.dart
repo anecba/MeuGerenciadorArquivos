@@ -3,8 +3,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:flutter_file_manager/flutter_file_manager.dart';
 import 'package:simple_permissions/simple_permissions.dart';
 import 'package:tccgerenciadorapp/Drawer/drawer.dart';
-import 'package:tccgerenciadorapp/Home/home.dart';
-import 'package:tccgerenciadorapp/Quiz/TelaQuiz.dart';
 
 class OrganizadorApp extends StatefulWidget {
   _OrganizadorState createState() => _OrganizadorState();
@@ -14,8 +12,6 @@ class _OrganizadorState extends State<OrganizadorApp> {
   Icon cusIcon = Icon(Icons.search);
   Widget cusSearchBar = Text("Gerenciador de arquivos");
   String dropdownValue = 'One';
-
-  var listaDropdown = ["Inglês", "Estudo", "Material"];
 
   @override
   Widget build(BuildContext context) {
