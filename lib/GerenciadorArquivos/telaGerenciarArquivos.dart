@@ -101,3 +101,8 @@ class _OrganizadorState extends State<OrganizadorApp> {
   }
 }
 
+Future<String> get _localPath async {
+  final directory = await getApplicationDocumentsDirectory();
+
+  return directory.path;
+}

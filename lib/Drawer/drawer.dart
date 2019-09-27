@@ -4,7 +4,8 @@ import 'package:tccgerenciadorapp/Categoria/listaCategorias.dart';
 import 'package:tccgerenciadorapp/GerenciadorArquivos/telaGerenciarArquivos.dart';
 import 'package:tccgerenciadorapp/Home/home.dart';
 import 'package:tccgerenciadorapp/Quiz/TelaQuiz.dart';
-import 'package:tccgerenciadorapp/TesteBotao.dart';
+
+import '../TesteBotao.dart';
 
 class DrawerCustomizado extends StatefulWidget {
   @override
@@ -83,10 +84,10 @@ class _DrawerCustomizadoState extends State<DrawerCustomizado> {
             Icons.person,
             'teste',
                 () => {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => (DropdownCategorias())))
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => (FlutterDemo())))
             }),
       ],
     );
